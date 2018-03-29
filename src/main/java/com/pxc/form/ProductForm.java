@@ -1,32 +1,32 @@
-package com.pxc.entity;
+package com.pxc.form;
 
-import com.pxc.enums.ProductStatus;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * Created by pxc on 2018/3/27.
  */
-@Entity
-public class ProductInfo {
-    @Id
-    @GenericGenerator(name = "productInfoGenerator",strategy = "uuid2")
-    @GeneratedValue(generator = "productInfoGenerator")
+public class ProductForm {
+
+
     private String productId;
+
+    /** 名字. */
     private String productName;
+
+    /** 单价. */
     private BigDecimal productPrice;
+
+    /** 库存. */
     private Integer productStock;
+
+    /** 描述. */
     private String productDescription;
+
+    /** 小图. */
     private String productIcon;
-    private Integer productStatus = ProductStatus.up.getCode();   //商品状态   0正常，1下架
+
+    /** 类目编号. */
     private Integer categoryType;
-    private Date createTime;
-    private Date updateTime;
 
     public String getProductId() {
         return productId;
@@ -76,35 +76,11 @@ public class ProductInfo {
         this.productIcon = productIcon;
     }
 
-    public Integer getProductStatus() {
-        return productStatus;
-    }
-
-    public void setProductStatus(Integer productStatus) {
-        this.productStatus = productStatus;
-    }
-
     public Integer getCategoryType() {
         return categoryType;
     }
 
     public void setCategoryType(Integer categoryType) {
         this.categoryType = categoryType;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 }
