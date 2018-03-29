@@ -1,6 +1,10 @@
 package com.pxc.entity;
 
+import com.pxc.enums.ProductStatus;
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -11,13 +15,15 @@ import java.util.Date;
 @Entity
 public class ProductInfo {
     @Id
+    @GenericGenerator(name = "productInfoGenerator",strategy = "uuid2")
+    @GeneratedValue(generator = "productInfoGenerator")
     private String productId;
     private String productName;
     private BigDecimal productPrice;
     private Integer productStock;
     private String productDescription;
     private String productIcon;
-    private Integer productStatus;   //商品状态   0正常，1下架
+    private Integer productStatus = ProductStatus.up.getCode();   //商品状态   0正常，1下架
     private Integer categoryType;
     private Date createTime;
     private Date updateTime;
