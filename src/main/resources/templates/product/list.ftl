@@ -15,7 +15,6 @@
                     <table class="table table-bordered table-condensed">
                         <thead>
                         <tr>
-                            <th>商品id</th>
                             <th>名称</th>
                             <th>图片</th>
                             <th>单价</th>
@@ -31,7 +30,6 @@
 
                         <#list productInfoPage.content as productInfo>
                         <tr>
-                            <td>${productInfo.productId}</td>
                             <td>${productInfo.productName}</td>
                             <td><img height="100" width="100" src="${productInfo.productIcon}" alt=""></td>
                             <td>${productInfo.productPrice}</td>

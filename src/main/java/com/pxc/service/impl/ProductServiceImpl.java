@@ -45,10 +45,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductInfo saveOrUpdate(ProductInfo productInfo) {
         if(StringUtils.isNotBlank(productInfo.getProductId())){
-            productInfo.setCreateTime(new Date());
-        }else{
             productInfo.setUpdateTime(new Date());
-        }
+        }else{
+            productInfo.setCreateTime(new Date());
+            productInfo.setUpdateTime(new Date());
+    }
         return productInfoDao.save(productInfo);
     }
 }

@@ -90,8 +90,6 @@ public class SellerProductController {
             //如果productId为空, 说明是新增
             if (StringUtils.isNotEmpty(form.getProductId())) {
                 productInfo = productService.getById(form.getProductId());
-            }else{
-                form.setProductId(null);
             }
             BeanUtils.copyProperties(form, productInfo);
             productService.saveOrUpdate(productInfo);

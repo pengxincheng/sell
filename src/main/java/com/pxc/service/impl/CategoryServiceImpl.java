@@ -37,9 +37,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public ProductCategory saveOrUpdate(ProductCategory productCategory) {
         if(null != productCategory.getCategoryId()){
-            productCategory.setCreateTime(new Date());
+            productCategory.setUpdateTime(new Date());
         }else {
             productCategory.setUpdateTime(new Date());
+            productCategory.setCreateTime(new Date());
         }
         return productCategoryDao.save(productCategory);
     }
