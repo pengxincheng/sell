@@ -30,9 +30,16 @@
                             <input name="productDescription" type="text" class="form-control" value="${(productInfo.productDescription)!''}"/>
                         </div>
                         <div class="form-group">
+                            <div class="col-md-3">
+                                <label for="pic">选择图片</label>
+                                <input type="file" id="pic" />
+                            </div>
+                            <div class="col-md-3">
+                                <button onclick="add()" type="button" class="btn btn-success">确定上传</button>
+                            </div>
                             <label>图片</label>
-                            <img height="100" width="100" src="${(productInfo.productIcon)!''}" alt="">
-                            <input name="productIcon" type="text" class="form-control" value="${(productInfo.productIcon)!''}"/>
+                            <img id="image" height="100" width="100" src="${(productInfo.productIcon)!''}" alt="">
+                            <input id="productIcon" name="productIcon" type="hidden" class="form-control" value="${(productInfo.productIcon)!''}"/>
                         </div>
                         <div class="form-group">
                             <label>类目</label>
@@ -54,7 +61,29 @@
             </div>
         </div>
     </div>
-
 </div>
+
+<script>
+
+    function add(){
+        var pic = $("#pic").get(0).files[0];
+        var formData = new FormData();
+        formData.append('pic', pic);
+        $.ajax({
+            url: '/sell/file/upload',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (resultData) {
+                console.log(resultData.data.url)
+                $("#image").attr("src",resultData.data.url);
+                $("#productIcon").val(resultData.data.url);
+            }})
+    }
+
+</script>
+
 </body>
 </html>
