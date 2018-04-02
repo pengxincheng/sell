@@ -15,7 +15,7 @@ import java.util.Date;
 @Entity
 public class ProductInfo {
     @Id
-    @GenericGenerator(name = "productInfoGenerator",strategy = "uuid2")
+    @GenericGenerator(name = "productInfoGenerator",strategy = "uuid")
     @GeneratedValue(generator = "productInfoGenerator")
     private String productId;
     private String productName;

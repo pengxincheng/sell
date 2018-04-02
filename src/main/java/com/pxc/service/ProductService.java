@@ -1,5 +1,6 @@
 package com.pxc.service;
 
+import com.pxc.dto.CartDTO;
 import com.pxc.entity.ProductInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,4 +28,5 @@ public interface ProductService {
 
     //加库存
     //减库存
+    void decreaseStock(List<CartDTO> cartDTOList);
 }
