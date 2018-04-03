@@ -20,11 +20,6 @@ public class OrderDaoTest {
 
     @Autowired
     private OrderDao orderDao;
-
-    @Test
-    public void findByBuyerOpenId() throws Exception {
-    }
-
     @Test
     public void save() throws Exception {
         Order order = new Order();
@@ -39,5 +34,10 @@ public class OrderDaoTest {
 
         Page<Order> orders = orderDao.findByBuyerOpenid("123", PageRequest.of(0, 10));
         System.out.println(orders.getContent().toString());
+    }
+
+    @Test
+    public void findByBuyerOpenidAndOrderId(){
+        System.out.println(orderDao.findByBuyerOpenidAndOrderId("abc123","20180403211314961302").toString());
     }
 }

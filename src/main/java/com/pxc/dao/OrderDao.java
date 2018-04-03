@@ -12,4 +12,5 @@ public interface OrderDao extends JpaRepository<Order,String> {
 
     Page<Order> findByBuyerOpenid(String openId, Pageable pageable);
 
+    Order findByBuyerOpenidAndOrderId(String buyerOpenid,String orderId);
 }

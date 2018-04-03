@@ -14,4 +14,13 @@ public interface OrderService {
      * @return
      */
      String createOrder(OrderDTO orderDTO);
+
+    /**
+     * 查询单个订单
+     * @param orderId
+     * @return
+     */
+    OrderDTO getOrderById(String orderId);
+
+    OrderDTO getOrderDetail(String openid,String orderId);
 }
